@@ -16,6 +16,11 @@
   height: 100%;
   width: 260px;
   background: #11101d;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+.sidebar.close {
+  width: 78px;
 }
 .sidebar .logo-details {
   height: 60px;
@@ -35,11 +40,22 @@
   font-size: 22px;
   color: #fff;
   font-weight: 600;
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
+}
+.sidebar.close .logo-details .web-name {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s;
 }
 .sidebar .nav-links {
   background-color: #11101d;
   padding-top: 30px;
   height: 100%;
+  overflow: auto;
+}
+.sidebar .nav-links::-webkit-scrollbar {
+  display: none;
 }
 .sidebar .nav-links li {
   position: relative;
@@ -54,6 +70,12 @@
   margin-top: -10px;
   background-color: #1d1b31;
   display: none;
+}
+.sidebar .nav-links li.showMenu .sub-menu {
+  display: block;
+}
+.sidebar .nav-links li.showMenu i.arrow {
+  transform: rotate(-180deg);
 }
 .sidebar .nav-links li .sub-menu li {
   text-decoration: none;
@@ -111,6 +133,7 @@
   min-width: 80px;
   text-align: center;
   line-height: 50px;
+  transition: all 0.4s ease;
 }
 .sidebar .nav-links li a {
   display: flex;
@@ -127,7 +150,8 @@
   bottom: 0;
   display: flex;
   align-items: center;
-  width: 200px;
+  width: 260px;
+  background-color: #11101d;
 }
 .sidebar .profile-details img {
   width: 52px;
@@ -142,4 +166,31 @@
 }
 .sidebar .profile-details .job {
   font-size: 10px;
+}
+.home-section {
+  position: relative;
+  background-color: red;
+  left: 260px;
+  width: calc(100% - 260px);
+  background-color: #e4e9f7;
+  height: 100vh;
+  transition: all 0.4s ease;
+}
+.home-section .home-content {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .home-text {
+  font-size: 35px;
+  color: #11101d;
+}
+.home-section .home-content .home-text {
+  font-size: 25px;
+  margin-left: 10px;
+}
+.sidebar.close ~ .home-section {
+  left: 78px;
+  width: calc(100% - 78px);
 }
